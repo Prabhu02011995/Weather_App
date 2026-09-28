@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Weather App</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body class="{{ background }}">
+
+    <main class="app">
+
+        <!-- ==================================
+             TITLE
+        =================================== -->
+
+        <h1>
+            🌦️ Weather App
+        </h1>
+
+
+        <!-- ==================================
+             SEARCH FORM
+        =================================== -->
+
+        <form
+            method="POST"
+            class="search-form"
+            onsubmit="showLoading()"
+        >
+
+            <input
+                type="text"
+                name="city"
+                placeholder="Enter city name"
+                value="{{ city }}"
+                required
+            >
+
+            <button
+                type="submit"
+                id="searchButton"
+            >
+                Search
+            </button>
+
+        </form>
+
+
+        <!-- ==================================
+             LOADING MESSAGE
+        =================================== -->
+
+        <div
+            id="loading"
+            style="display: none;"
+        >
+
+            <div class="loading-icon">
+                🌤️
+            </div>
+
+            <div class="loading-text">
+                Getting weather information...
+            </div>
+
+        </div>
+
+
+        <!-- ==================================
+             ERROR MESSAGE
+        =================================== -->
+
+        {% if error %}
+
+            <div class="error">
+
+                {{ error }}
+
+            </div>
+
+        {% endif %}
+
+
+        <!-- ==================================
+             CURRENT WEATHER
+        =================================== -->
+
+        {% if weather %}
+
+            <section class="weather-card">
+
+                <h2>
+                    {{ weather.city }}
+                </h2>
+
+
+                <div class="weather-condition">
+
+                    {{ weather.condition }}
+
+                </div>
+
+
+                <div class="temperature">
+
+                    {{ weather.temperature }} °C
+
+                </div>
+
+
+                <p>
+
+                    💧 Humidity:
+                    {{ weather.humidity }}%
+
+                </p>
+
+
+                <p>
+
+                    💨 Wind Speed:
+                    {{ weather.wind_speed }} km/h
+
+                </p>
+
+            </section>
+
+
+            <!-- ==================================
+                 FORECAST TITLE
+            =================================== -->
+
+            <h2 class="forecast-title">
+
+                5-Day Forecast
+
+            </h2>
+
+
+            <!-- ==================================
+                 FORECAST
+            =================================== -->
+
+            <section class="forecast-container">
+
+                {% for day in forecast %}
+
+                    <article class="forecast-card">
+
+                        <h3>
+
+                            {{ day.date }}
+
+                        </h3>
+
+
+                        <div class="forecast-condition">
+
+                            {{ day.condition }}
+
+                        </div>
+
+
+                        <p>
+
+                            🔥 Max:
+                            {{ day.max_temp }} °C
+
+                        </p>
+
+
+                        <p>
+
+                            ❄️ Min:
+                            {{ day.min_temp }} °C
+
+                        </p>
+
+                    </article>
+
+                {% endfor %}
+
+            </section>
+
+        {% endif %}
+
+    </main>
+
+
+    <!-- ==================================
+         JAVASCRIPT
+    =================================== -->
+
+    <script>
+
+        function showLoading() {
+
+            document.getElementById("loading").style.display = "block";
+
+            document.getElementById("searchButton").disabled = true;
+
+            document.getElementById("searchButton").innerText =
+                "Searching...";
+
+        }
+
+    </script>
+
+</body>
+
+</html>

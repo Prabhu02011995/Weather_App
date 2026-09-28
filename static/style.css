@@ -1,0 +1,432 @@
+/* ========================================
+   BASIC SETTINGS
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 10px;
+
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+    text-align: center;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transition: background 0.8s ease;
+}
+
+
+/* ========================================
+   ☀️ CLEAR SKY
+======================================== */
+
+body.clear {
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            #fff59d 0%,
+            #ffd54f 5%,
+            transparent 12%
+        ),
+        linear-gradient(
+            180deg,
+            #1976d2 0%,
+            #42a5f5 45%,
+            #90caf9 75%,
+            #e3f2fd 100%
+        );
+}
+
+
+/* ========================================
+   ☁️ CLOUDY
+======================================== */
+
+body.cloudy {
+    background:
+        radial-gradient(
+            ellipse at 25% 30%,
+            rgba(255, 255, 255, 0.8),
+            transparent 25%
+        ),
+        linear-gradient(
+            180deg,
+            #78909c,
+            #b0bec5,
+            #eceff1
+        );
+}
+
+
+/* ========================================
+   🌧️ RAIN
+======================================== */
+
+body.rain {
+    background:
+        repeating-linear-gradient(
+            110deg,
+            transparent 0px,
+            transparent 18px,
+            rgba(255, 255, 255, 0.12) 19px,
+            transparent 21px
+        ),
+        linear-gradient(
+            180deg,
+            #263238,
+            #455a64,
+            #78909c
+        );
+}
+
+
+/* ========================================
+   ⛈️ THUNDERSTORM
+======================================== */
+
+body.thunderstorm {
+    background:
+        linear-gradient(
+            180deg,
+            #080d18,
+            #17202f,
+            #26354a
+        );
+}
+
+
+/* ========================================
+   🌫️ FOG
+======================================== */
+
+body.fog {
+    background:
+        linear-gradient(
+            180deg,
+            #90a4ae,
+            #cfd8dc,
+            #eceff1
+        );
+}
+
+
+/* ========================================
+   ❄️ SNOW
+======================================== */
+
+body.snow {
+    background:
+        radial-gradient(
+            circle,
+            white 0%,
+            white 3%,
+            transparent 4%
+        ),
+        linear-gradient(
+            180deg,
+            #81d4fa,
+            #e1f5fe,
+            #ffffff
+        );
+
+    background-size:
+        45px 45px,
+        cover;
+}
+
+
+/* ========================================
+   MAIN
+======================================== */
+
+.app {
+    max-width: 1400px;
+    margin: auto;
+}
+
+
+/* ========================================
+   🌦️ TITLE
+======================================== */
+
+h1 {
+    font-size: 48px;
+
+    color: white;
+
+    margin: 0 0 18px;
+
+    text-shadow:
+        0 3px 7px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ========================================
+   🔎 SEARCH
+======================================== */
+
+.search-form {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-bottom: 15px;
+}
+
+.search-form input {
+    width: 450px;
+
+    max-width: 65%;
+
+    padding: 13px;
+
+    font-size: 18px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    outline: none;
+}
+
+.search-form button {
+    padding: 13px 25px;
+
+    font-size: 18px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background-color: #1976d2;
+
+    color: white;
+
+    cursor: pointer;
+}
+
+.search-form button:hover {
+    background-color: #0d47a1;
+}
+
+
+/* ========================================
+   🌡️ CURRENT WEATHER CARD
+======================================== */
+
+.weather-card {
+    width: 560px;
+
+    max-width: 85%;
+
+    margin: 15px auto;
+
+    padding: 18px;
+
+    background: rgba(255, 255, 255, 0.82);
+
+    backdrop-filter: blur(10px);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 7px 20px rgba(0, 0, 0, 0.22);
+}
+
+
+/* City */
+
+.weather-card h2 {
+    font-size: 34px;
+
+    margin: 3px 0 8px;
+}
+
+
+/* Condition */
+
+.weather-condition {
+    font-size: 24px;
+
+    margin: 8px;
+}
+
+
+/* Temperature */
+
+.temperature {
+    font-size: 50px;
+
+    font-weight: bold;
+
+    margin: 8px;
+}
+
+
+/* Humidity + wind */
+
+.weather-card p {
+    font-size: 17px;
+
+    margin: 7px;
+}
+
+
+/* ========================================
+   📅 FORECAST TITLE
+======================================== */
+
+.forecast-title {
+    color: white;
+
+    font-size: 30px;
+
+    margin: 15px 0 12px;
+
+    text-shadow:
+        0 3px 7px rgba(0, 0, 0, 0.5);
+}
+
+
+/* ========================================
+   📅 FORECAST CONTAINER
+======================================== */
+
+.forecast-container {
+    display: flex;
+
+    justify-content: center;
+
+    flex-wrap: nowrap;
+
+    gap: 8px;
+
+    margin-bottom: 20px;
+}
+
+
+/* ========================================
+   📋 FORECAST CARD
+======================================== */
+
+.forecast-card {
+    width: 180px;
+
+    padding: 10px 8px;
+
+    background: rgba(255, 255, 255, 0.86);
+
+    backdrop-filter: blur(8px);
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 14px rgba(0, 0, 0, 0.18);
+}
+
+
+/* Date */
+
+.forecast-card h3 {
+    font-size: 14px;
+
+    margin: 4px 0 10px;
+}
+
+
+/* Condition */
+
+.forecast-card .forecast-condition {
+    font-size: 16px;
+
+    margin-bottom: 8px;
+}
+
+
+/* Temperature */
+
+.forecast-card p {
+    font-size: 13px;
+
+    margin: 6px;
+}
+
+
+/* ========================================
+   ❌ ERROR
+======================================== */
+
+.error {
+    width: 350px;
+
+    max-width: 90%;
+
+    margin: 15px auto;
+
+    padding: 12px;
+
+    background: white;
+
+    color: red;
+
+    border-radius: 10px;
+}
+
+
+/* ========================================
+   📱 MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    h1 {
+        font-size: 35px;
+    }
+
+    .search-form {
+        flex-wrap: wrap;
+    }
+
+    .search-form input {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .search-form button {
+        width: 140px;
+    }
+
+    .weather-card {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .weather-card h2 {
+        font-size: 28px;
+    }
+
+    .temperature {
+        font-size: 42px;
+    }
+
+    .weather-card p {
+        font-size: 16px;
+    }
+
+    .forecast-container {
+        flex-wrap: wrap;
+    }
+
+    .forecast-card {
+        width: 145px;
+    }
+}
